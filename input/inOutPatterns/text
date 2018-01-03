@@ -1,0 +1,18 @@
+In this chapter, we’ll be focusing on what is probably the most often overlooked way to
+improve the value of MapReduce: customizing input and output. You will not always
+want to load or store data the way Hadoop MapReduce does out of the box. Sometimes
+you can skip the time-consuming step of storing data in HDFS and just accept data from
+some original source, or feed it directly to some process that uses it after MapReduce is
+finished. Sometimes the basic Hadoop paradigm of file blocks and input splits doesn’t
+do what you need, so this is where a custom InputFormat or OutputFormat comes into
+play.
+Three patterns in this chapter deal with input: generating data, external source input,
+and partition pruning. All three input patterns share an interesting property: the map
+phase is completely unaware that tricky things are going on before it gets its input pairs.
+Customizing an input format is a great way to abstract away details of the method you
+use to load data.
+On the flip side, Hadoop will not always store data in the way you need it to. There is
+one pattern in this chapter, external source output, that writes data to a system outside
+of Hadoop and HDFS. Just like the custom input formats, custom output formats keep
+the map or reduce phase from realizing that tricky things are going on as the data is
+going out.
